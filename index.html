@@ -37,6 +37,7 @@
                         <option value="">---Pilih Payment---</option>
                         <option value="gopay">Gopay</option>
                         <option value="dana">Dana</option>
+                        <option value="ovo">OVO</option>
                     </select>
                 </div>
                 <div id="paymentDetail" class="mt-6 hidden text-center">
@@ -87,7 +88,6 @@
         })();
     </script>
     <script>
-        // Reset-to-1 button handler
         document.getElementById('resetBtn')?.addEventListener('click', function(){
             if(window.setQuantity){
                 window.setQuantity(1);
@@ -111,6 +111,10 @@
             } else if (method === 'dana') {
                 paymentNumber.textContent = '67890';
                 paymentQr.src = 'https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=DANA-082345678901';
+                paymentDetail.classList.remove('hidden');
+            } else if (method === 'ovo') {
+                paymentNumber.textContent = '085712345678';
+                paymentQr.src = 'https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=OVO-085712345678';
                 paymentDetail.classList.remove('hidden');
             } else {
                 paymentDetail.classList.add('hidden');
